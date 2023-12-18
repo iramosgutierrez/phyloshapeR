@@ -1,6 +1,6 @@
 
 
-plot2shape <- function(tree, shape, centroid=NULL, nlines =360){
+phyloshape <- function(tree, shape, centroid=NULL, nlines =360){
   
   if (!inherits(tree, "phylo")) {stop("The 'tree' object must be a phylo object.")}
   if (!inherits(shape, "SpatVector")) {stop("The 'shape' object must be a SpatVector object.")}
