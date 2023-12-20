@@ -5,8 +5,8 @@
 \title{Create tree to plot}
 \usage{
 phyloshape(
-  tree = NULL,
   shape,
+  tree = NULL,
   point = NULL,
   nlines = 360,
   method = "fill",
@@ -14,10 +14,10 @@ phyloshape(
 )
 }
 \arguments{
+\item{shape}{a SpatialVector object with only one geometry whose contour will be used to shape the phylogeny}
+
 \item{tree}{Phylogenetic tree to midify its branch lengths. If NULL, a tree of random topology will be created.
 The number of tips will be randomly pruned to match 'nlines'}
-
-\item{shape}{a SpatialVector object with only one geometry whose contour will be used to shape the phylogeny}
 
 \item{point}{a SpatialVector point from where the phylogeny will be plotted. If NULL, the function will use the centroid.}
 
