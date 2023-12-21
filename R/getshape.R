@@ -60,7 +60,8 @@ getshape <- function(type="polygon", sides=6, rotate=0){
   }
 
   pol <- cbind(x,y)
-  polygon <- vect(rbind(cbind(object=1, part=1, pol, hole=0)), type="polygons")
+  polygon <- terra::vect(rbind(cbind(object=1, part=1, pol, hole=0)), type="polygons")
+  terra::crs(polygon) <- "+proj=longlat +datum=WGS84 +no_defs +type=crs"
   return(polygon)
 }
 
