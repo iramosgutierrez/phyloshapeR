@@ -1,3 +1,4 @@
+normalize <- function(x){(x-min(x))/(max(x)-min(x))}
 
 tip.depth <- function(tree, tips){
   depth <- vector("numeric")

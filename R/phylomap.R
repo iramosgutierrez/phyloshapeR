@@ -7,8 +7,8 @@
 #' @param cex Point size of the tree label point
 #' @param pch Point character of the tree label point
 #' @param tip.label.col Colour of the tree label point
-#' @param ... Other arguments tu pass through plot.phylo() function for the phylogeny plotting
-#' @return A plot
+#' @param ... Other arguments to pass through plot.phylo() function for the phylogeny plotting
+#' @return A plot 
 #'
 #' @export
 #'
