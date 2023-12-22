@@ -3,7 +3,7 @@
 #'
 #' Create a polygonal or custom prediefined shape
 #'
-#' @param type Type of predefined shape. Accepted values are "polygon", "heart", "diamond", "triangle", "square", "hexagon", "circle"
+#' @param type Type of predefined shape. Accepted values are "polygon", "heart", "diamond", "star", triangle", "square", "hexagon", "circle"
 #' @param sides Applies if type is "polygon". Number of sides of the polygon
 #' @param rotate Degrees in which to rotate the shape (counter-clockwise)
 #'
@@ -69,6 +69,24 @@ getshape <- function(type="polygon", sides=6, rotate=0){
     }
     x[5] <- x[1]
     y[5] <- y[1]
+
+  }
+  if(type=="star"){
+    x <- vector("numeric")
+    y <- vector("numeric")
+    g <- vector("numeric")
+    
+    x[1] <- 0
+    y[1] <- 0
+    g <-c(0, 72, -72, 0, 216, 288, 144, 216, 72) # rotate + 
+    
+    for (i in 2:10){
+      x[i] <- x[i-1]+cos(g[i-1]*pi/180)
+      y[i] <- y[i-1]+sin(g[i-1]*pi/180)
+    }
+    plot(x,y, xlim=c(-3,3), ylim=c(-3,3))
+    x[11] <- x[1]
+    y[11] <- y[1]
 
   }
   if(type=="triangle"){
