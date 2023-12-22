@@ -49,6 +49,9 @@
     <loc>/reference/exampledata.html</loc>
   </url>
   <url>
+    <loc>/reference/getshape.html</loc>
+  </url>
+  <url>
     <loc>/reference/herbarium.table.html</loc>
   </url>
   <url>
@@ -65,6 +68,9 @@
   </url>
   <url>
     <loc>/reference/participation.table.html</loc>
+  </url>
+  <url>
+    <loc>/reference/phylomap.html</loc>
   </url>
   <url>
     <loc>/reference/phyloshape.html</loc>
