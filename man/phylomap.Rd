@@ -17,7 +17,7 @@ phylomap(tree, offset = 0, cex = 0.85, pch = 16, tip.label.col = "black", ...)
 
 \item{tip.label.col}{Colour of the tree label point}
 
-\item{...}{Other arguments tu pass through plot.phylo() function for the phylogeny plotting}
+\item{...}{Other arguments to pass through plot.phylo() function for the phylogeny plotting}
 }
 \value{
 A plot

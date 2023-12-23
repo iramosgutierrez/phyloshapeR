@@ -7,7 +7,7 @@
 getshape(type = "polygon", sides = 6, rotate = 0)
 }
 \arguments{
-\item{type}{Type of predefined shape. accepted values are "polygon", "heart", "triangle", "square", "hexagon", "circle"}
+\item{type}{Type of predefined shape. Accepted values are "polygon", "heart", "diamond", "star", triangle", "square", "hexagon", "circle"}
 
 \item{sides}{Applies if type is "polygon". Number of sides of the polygon}
 
