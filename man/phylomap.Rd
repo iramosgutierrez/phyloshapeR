@@ -17,7 +17,7 @@ phylomap(
 \arguments{
 \item{tree}{Phylogenetic tree obtained from phyloshape function}
 
-\item{offset}{separation from the tree tip to the tip label point}
+\item{offset}{separation from the tree tip to the tip label point. Its value is corrected 0.1 times the root's depth to have values near 0-1.}
 
 \item{cex}{Point size of the tree label point}
 

@@ -235,7 +235,7 @@ through plot.phylo() function, always with the nomenclature used therein
 
 par(mfrow=c(1,3), mar=c(10,0,10,0))
 phylomap(centroid.tree, main="Default output")
-phylomap(centroid.tree, offset = 100000, cex = 0.5, pch="o", tip.label.col = "red", main ="Changing tip label options")
+phylomap(centroid.tree, offset = 0.5, cex = 0.5, pch="o", tip.label.col = "red", main ="Changing tip label options")
 phylomap(centroid.tree, edge.width=2, edge.color="green", main ="Changing tree options")
 ```
 
