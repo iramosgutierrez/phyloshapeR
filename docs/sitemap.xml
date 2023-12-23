@@ -25,6 +25,9 @@
     <loc>/reference/badges.table.html</loc>
   </url>
   <url>
+    <loc>/reference/coords_to_point.html</loc>
+  </url>
+  <url>
     <loc>/reference/create_accreditation.html</loc>
   </url>
   <url>
@@ -50,6 +53,9 @@
   </url>
   <url>
     <loc>/reference/getshape.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_territory.html</loc>
   </url>
   <url>
     <loc>/reference/herbarium.table.html</loc>

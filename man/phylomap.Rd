@@ -4,7 +4,15 @@
 \alias{phylomap}
 \title{Default plot for phyloshape plotting}
 \usage{
-phylomap(tree, offset = 0, cex = 0.85, pch = 16, tip.label.col = "black", ...)
+phylomap(
+  tree,
+  offset = 0,
+  cex = 0.85,
+  pch = 16,
+  tip.label.col = "black",
+  edge.width = 0.75,
+  ...
+)
 }
 \arguments{
 \item{tree}{Phylogenetic tree obtained from phyloshape function}

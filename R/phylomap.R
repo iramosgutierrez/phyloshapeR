@@ -19,9 +19,8 @@
 #'  tree <- phyloshape(shape,  nlines = 100)
 #'  phylomap(tree, cex=0.4, offset=10000)  
 #'
-phylomap <- function(tree, offset=0, cex=0.85, pch=16, tip.label.col="black", ...){
-
-ape::plot.phylo(tree, type = "f", show.tip.label = F, edge.width = 0.75,...)
+phylomap <- function(tree, offset=0, cex=0.85, pch=16, tip.label.col="black", edge.width=0.75,...){
+ape::plot.phylo(tree, type = "f", show.tip.label = F, edge.width = edge.width,...)
 ape::tiplabels(pch=pch, cex=cex,offset = offset, col=tip.label.col)#.3 for png
 
 }

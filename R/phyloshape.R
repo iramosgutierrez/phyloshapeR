@@ -5,9 +5,9 @@
 #'
 #' @param shape a SpatialVector object with only one geometry whose contour will be used to shape the phylogeny
 #' @param tree Phylogenetic tree to midify its branch lengths. If NULL, a tree of random topology will be created. 
-#' The number of tips will be randomly pruned to match 'nlines'
+#' The number of tips will be randomly pruned to match 'ntips'
 #' @param point a SpatialVector point from where the phylogeny will be plotted. If NULL, the function will use the centroid.
-#' @param nlines number of lines (tips) the resulting phylogeny will include. default is 360.
+#' @param ntips number of lines (tips) the resulting phylogeny will include. default is 360.
 #' @param method Method used to calculate the branch lengths. Method 'extend' will mantain 
 #' the original phylogeny shape and add distances just to the tip branches.
 #' Method 'fill' will calculate distances from the tips back to the root. Distances from 
@@ -23,14 +23,14 @@
 #' @author Ignacio Ramos-Gutiérrez
 #'
 #' @examplesIf interactive()
-#'  tree2 <- phyloshape(tree=NULL, shape,  method = "fill", nlines = 150, depth.k = 0.99)
+#'  tree2 <- phyloshape(tree=NULL, shape,  method = "fill", ntips = 150, depth.k = 0.99)
 #'  ape::plot.phylo(tree2, type = "f", show.tip.label = F)
 #'  ape::tiplabels(pch=16, cex=.5)
 #'
-phyloshape <- function(shape, tree=NULL,  point=NULL, nlines =360, method="fill", depth.k=0.95){
+phyloshape <- function(shape, tree=NULL,  point=NULL, ntips =360, method="fill", depth.k=0.95){
   
   if(is.null(tree)){
-    tree <- ape::rtree(nlines)
+    tree <- ape::rtree(ntips)
   }
   if(!ape::is.ultrametric(tree)){tree <- phytools::force.ultrametric(tree, method = "extend")}
   if (!inherits(tree, "phylo")) {stop("The 'tree' object must be a phylo object.")}
@@ -47,12 +47,12 @@ phyloshape <- function(shape, tree=NULL,  point=NULL, nlines =360, method="fill"
     stop("Layers 'point' and 'shape' does not intersect")
   }
   
-  if(ape::Ntip(tree) < nlines){stop("Number of tree tips smaller than 'nlines'.")}
-  if(ape::Ntip(tree) > nlines){
+  if(ape::Ntip(tree) < ntips){stop("Number of tree tips smaller than 'ntips'.")}
+  if(ape::Ntip(tree) > ntips){
     message(paste0(
-      "Number of tree tips and 'nlines' do not match. Pruning tree to ", 
-      nlines ," tips"))
-    tree <- ape::keep.tip(tree, sample(tree$tip.label, nlines, F))
+      "Number of tree tips and 'ntips' do not match. Pruning tree to ", 
+      ntips ," tips"))
+    tree <- ape::keep.tip(tree, sample(tree$tip.label, ntips, F))
     
   }
   
@@ -61,7 +61,7 @@ phyloshape <- function(shape, tree=NULL,  point=NULL, nlines =360, method="fill"
 
   
 
-  distvect <- get_dist_vect(point, shape, nlines)
+  distvect <- get_dist_vect(point, shape, ntips)
   
   
   if(method == "fill"){tree.mod <- edgedist_fill(tree, distvect, depth.k)}

@@ -4,7 +4,7 @@ tip.depth <- function(tree, tips){
   depth <- vector("numeric")
   for(i in 1:length(tips)){
     tip <- tips[i]
-    ascends <- ape::nodepath(tree, 1, Ntip(tree)+1)
+    ascends <- ape::nodepath(tree, 1, ape::Ntip(tree)+1)
     ascend.length <- tree$edge.length[tree$edge[,2]%in%ascends]
     sum.length <- sum(ascend.length)
     depth[i]<-sum.length

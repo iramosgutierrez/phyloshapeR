@@ -8,7 +8,7 @@ phyloshape(
   shape,
   tree = NULL,
   point = NULL,
-  nlines = 360,
+  ntips = 360,
   method = "fill",
   depth.k = 0.95
 )
@@ -17,11 +17,11 @@ phyloshape(
 \item{shape}{a SpatialVector object with only one geometry whose contour will be used to shape the phylogeny}
 
 \item{tree}{Phylogenetic tree to midify its branch lengths. If NULL, a tree of random topology will be created.
-The number of tips will be randomly pruned to match 'nlines'}
+The number of tips will be randomly pruned to match 'ntips'}
 
 \item{point}{a SpatialVector point from where the phylogeny will be plotted. If NULL, the function will use the centroid.}
 
-\item{nlines}{number of lines (tips) the resulting phylogeny will include. default is 360.}
+\item{ntips}{number of lines (tips) the resulting phylogeny will include. default is 360.}
 
 \item{method}{Method used to calculate the branch lengths. Method 'extend' will mantain
 the original phylogeny shape and add distances just to the tip branches.
@@ -40,7 +40,7 @@ Create phylogenetic tree with edge lengths according to a shape
 }
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
- tree2 <- phyloshape(tree=NULL, shape,  method = "fill", nlines = 150, depth.k = 0.99)
+ tree2 <- phyloshape(tree=NULL, shape,  method = "fill", ntips = 150, depth.k = 0.99)
  ape::plot.phylo(tree2, type = "f", show.tip.label = F)
  ape::tiplabels(pch=16, cex=.5)
 \dontshow{\}) # examplesIf}

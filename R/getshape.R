@@ -84,7 +84,7 @@ getshape <- function(type="polygon", sides=6, rotate=0){
       x[i] <- x[i-1]+cos(g[i-1]*pi/180)
       y[i] <- y[i-1]+sin(g[i-1]*pi/180)
     }
-    plot(x,y, xlim=c(-3,3), ylim=c(-3,3))
+    
     x[11] <- x[1]
     y[11] <- y[1]
 
