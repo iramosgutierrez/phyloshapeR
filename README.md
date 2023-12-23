@@ -67,7 +67,6 @@ some post-processing to select the corect geomentries, as unique
 countries have several polygons.
 
 ``` r
-
 shape <- terra::vect(phyloshapeR::world)
 shape <- shape[shape$name=="Australia",] #We select all the territories from Australia's country
 shape <- get_territory(shape, order = 1) #we select the biggest one  (mainland Australia)
@@ -109,15 +108,9 @@ heart <- getshape(type="heart")
 star <- getshape(type="star")
 hexagon <- getshape(type="polygon", sides = 6)
 rot.hexagon <- getshape(type="polygon", sides = 6, rotate = 30)
-
-par(mfrow=c(2,2))
-terra::plot(heart, main="Heart")
-terra::plot(star, main="Star")
-terra::plot(hexagon, main="Hexagon")
-terra::plot(rot.hexagon, main="Rotated Hexagon")
 ```
 
-<img src="man/figures/README-createshapes-1.png" width="100%" />
+<img src="man/figures/README-createshapes_plot-1.png" width="100%" />
 
 In case you alternatively want to use a country border to shape your
 phylogeny, you might use the world map included in phyloshapeR. However,
@@ -129,24 +122,17 @@ generally in the one of interest) using the accessory function
 `get_territory`.
 
 ``` r
-
 world <- terra::vect(phyloshapeR::world)
 australia <- world[world$name=="Australia",] #We select all the territories from Australia's country
 mainland.aus <- get_territory(australia, 1) #we select the biggest one  (mainland Australia)
 tasmania <- get_territory(australia, 2) #we select the second biggest one  (Tasmania)
-
-
-terra::plot(australia, col="red")
-terra::plot(mainland.aus, col="green", add=T)
-terra::plot(tasmania, col="blue", add=T)
-legend("topright", legend=c("Mainland Australia", "Tasmania", "Not Selected"), fill=c("green", "blue", "red"))
 ```
 
-<img src="man/figures/README-shape australia-1.png" width="100%" /> Bear
-in mind that depending on the selected shape the results may vary. Using
-very linear shapes (as the border of Chile, for example), or borders
-with bends and turns (as the case of Great Britain) may result in
-strange outputs.
+<img src="man/figures/README-australia_plot-1.png" width="100%" />
+Please bear in mind that depending on the selected shape the results may
+vary. Using very linear shapes (as the border of Chile, for example), or
+borders with bends and turns (as the case of Great Britain) may result
+in strange outputs.
 
 ### phyloshape() function
 
@@ -168,28 +154,18 @@ to 1 will result in very long internal branches, splitting nnear the
 tips, while values near to 0 ill split near the root.
 
 ``` r
-
 ext.tree  <- phyloshape(mainland.aus, exampletree, ntips =120, method = "extend")
 fill.tree <- phyloshape(mainland.aus, exampletree, ntips=120, method = "fill")
-
-par(mfrow=c(1,2), mar=c(1,0,1,0))
-ape::plot.phylo(ext.tree,  type = "f", show.tip.label = F, edge.width = 0.75,main="Extend Method")
-ape::plot.phylo(fill.tree, type = "f", show.tip.label = F, edge.width = 0.75,main="Fill Method")
 ```
 
-<img src="man/figures/README-methods-1.png" width="100%" />
+<img src="man/figures/README-methods_plot-1.png" width="100%" />
 
 ``` r
-
 depth.025.tree <- phyloshape(mainland.aus, exampletree, ntips=120, depth.k = 0.25)
 depth.099.tree <- phyloshape(mainland.aus, exampletree, ntips=120, depth.k = 0.99)
-
-par(mfrow=c(1,2), mar=c(1,0,1,0))
-ape::plot.phylo(depth.025.tree,  type = "f", show.tip.label = F, edge.width = 0.75,main="depth.k = 0.25")
-ape::plot.phylo(depth.099.tree, type = "f", show.tip.label = F, edge.width = 0.75, main="depth.k = 0.99")
 ```
 
-<img src="man/figures/README-depths-1.png" width="100%" />
+<img src="man/figures/README-depths_plot-1.png" width="100%" />
 
 Ultimately, we can select the coordinates where we want to set the root
 of our tree, specifying a Spatial Vector point in the `point` argument,
@@ -207,14 +183,9 @@ point2 <- coords_to_point(x=145, y= -28)
 centroid.tree <- phyloshape(mainland.aus, exampletree, ntips=120)
 point1.tree <- phyloshape(mainland.aus, exampletree, ntips=120,  point = point1)
 point2.tree <- phyloshape(mainland.aus, exampletree, ntips=120,  point = point2)
-
-par(mfrow=c(1,3), mar=c(10,0,10,0))
-ape::plot.phylo(point1.tree,  type = "f", show.tip.label = F, edge.width = 0.75,   main="Custom west point")
-ape::plot.phylo(centroid.tree, type = "f", show.tip.label = F, edge.width = 0.75, main="Centroid")
-ape::plot.phylo(point2.tree,  type = "f", show.tip.label = F, edge.width = 0.75,   main="Custom east point")
 ```
 
-<img src="man/figures/README-points-1.png" width="100%" />
+<img src="man/figures/README-points_plot-1.png" width="100%" />
 
 ### phylomap() function
 
