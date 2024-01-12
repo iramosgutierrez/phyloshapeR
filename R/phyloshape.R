@@ -15,6 +15,12 @@
 #' @param depth.k Applies for method 'fill'. Percentage of branch that separates internal nodes.
 #' Values near to 0 have clustered internal nodes near to the root, thus resemble to a polytomy, 
 #' while values near 1 have internal nodes clustered toward tips. Default value is 0.95.
+#' 
+#' @details 
+#' Argument `depth.k` stands for the amount of shared branch two nodes share. Therefore, a `depth.k` = 0
+#' means they join at the root (which would return a polytomy), while a value of 1 would mean the branch
+#' is common until the depth of the deepest node of them both (i.e. splitting at the tip).
+#' Values lower than 0.9 will generally result in phylogenies with nodes clustered near to the root.
 #'
 #' @return A phylogenetic tree whose edge lengths will draw the specified shape.
 #'

@@ -38,6 +38,12 @@ A phylogenetic tree whose edge lengths will draw the specified shape.
 \description{
 Create phylogenetic tree with edge lengths according to a shape
 }
+\details{
+Argument \code{depth.k} stands for the amount of shared branch two nodes share. Therefore, a \code{depth.k} = 0
+means they join at the root (which would return a polytomy), while a value of 1 would mean the branch
+is common until the depth of the deepest node of them both (i.e. splitting at the tip).
+Values lower than 0.9 will generally result in phylogenies with nodes clustered near to the root.
+}
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
  tree2 <- phyloshape(tree=NULL, shape,  method = "fill", ntips = 150, depth.k = 0.99)
