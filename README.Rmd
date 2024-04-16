@@ -129,10 +129,12 @@ tasmania <- get_territory(australia, 2) #we select the second biggest one  (Tasm
 ```
 
 ```{r australia_plot, echo = FALSE}
-terra::plot(australia, col="red")
-terra::plot(mainland.aus, col="green", add=T)
-terra::plot(tasmania, col="blue", add=T)
-legend("topright", legend=c("Mainland Australia", "Tasmania", "Not Selected"), fill=c("green", "blue", "red"))
+terra::plot(australia, col="#d22030", border="transparent", xlim=c(110,170))
+terra::plot(mainland.aus, col="#f28f20", border="transparent", add=T)
+terra::plot(tasmania, col="#0198ce", border="transparent", add=T)
+legend(150,-10, legend=c("Mainland Australia", "Tasmania", "Not Selected"), 
+                fill=  c("#f28f20", "#0198ce", "#d22030"),
+                cex=0.7  )
 ```
 Please bear in mind that depending on the selected shape the results may vary. Using very linear shapes (as the border of Chile, for example), or borders with bends and turns (as the case of Great Britain) may result in strange outputs.
 
