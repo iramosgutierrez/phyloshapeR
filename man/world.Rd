@@ -5,17 +5,15 @@
 \alias{world}
 \title{world}
 \format{
-An object of class \code{PackedSpatVector} of length 1.
+A terra PackedSpatVector object
+\describe{
+A terra PackedSpatVector object with world borders.
+}
 }
 \usage{
 world
 }
 \description{
 Example data to create attendance certificates
-}
-\details{
-A terra PackedSpatVector object.
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{}\if{html}{\out{</div>}}
 }
 \keyword{datasets}

@@ -3,10 +3,10 @@
 #'
 #' Example data to create attendance certificates
 #'
-#' @md
-#' @details
-#' A terra PackedSpatVector object.
-#' ```
+#' @format A terra PackedSpatVector object
+#' \describe{
+#' A terra PackedSpatVector object with world borders.
+#' }
 #'
 "world"
 
